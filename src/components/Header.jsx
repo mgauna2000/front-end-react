@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 function Header() {
     return (
         <nav>
-            <ul>
-                <li>
-                    <Link to="/formulario">Formulario</Link>
+            <ul className="list-group list-group-horizontal justify-content-center mt-4">
+                <li className="list-group-item list-group-item-dark mb-3">
+                    <Link className="list-group-item-action" to="/formulario">Formulario</Link>
                 </li>
-                <li>
-                <Link to="/login">Login</Link>
+                <li className="list-group-item list-group-item-dark mb-3">
+                <Link className="list-group-item-action" to="/login">Login</Link>
                 </li>
-                <li>
-                <Link to="/carousel">Carousel</Link>
+                <li className="list-group-item list-group-item-dark mb-3">
+                <Link className="list-group-item-action" to="/carousel">Carousel</Link>
                 </li>
             </ul>
         </nav>

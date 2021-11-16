@@ -1,0 +1,5 @@
+.carousel-inner> .carousel-item> img { 
+    width: 640px;
+    height: 500px;
+    padding: 12px;
+}
