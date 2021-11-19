@@ -15,7 +15,8 @@ const Form = () => {
   const handleChange = (event) => {
     setData({
       ...data,
-      [event.target.name] : event.target.value
+      [event.target.name] : event.target.value,
+      [event.target.lastname] : event.target.value
     });
   };
 
