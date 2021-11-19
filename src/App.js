@@ -9,7 +9,7 @@ import Carousel from "./components/Carousel";
 function App() {
   return (
     
-    <div className="App" style={{backgroundColor: '#000000'}}>
+    <div className="App">
       <Navbar />
       <hr />
       <Routes>

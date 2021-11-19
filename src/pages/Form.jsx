@@ -2,26 +2,35 @@ import React, { useState } from "react";
 
 const Form = () => {
 
-  const [data, setData] = useState({
-    nombre: '',
-    apellido: ''
-  });
+  const [form, setForm] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('enviando datos...' + data.nombre + ' ' + data.apellido);
+    alert('Formulario enviado')
   };
 
   const handleChange = (event) => {
-    setData({
-      ...data,
-      [event.target.name] : event.target.value,
-      [event.target.lastname] : event.target.value
+    setForm({
+      ...form,
+      [event.target.name] : event.target.value
     });
   };
 
+  const handleCheckbox = (event) => {
+    setForm({
+      ...form,
+      [event.target.name] : event.target.checked
+    })
+  }
+
+  const handleAttachFile = (event) => {
+    setForm({
+      ...form,
+      [event.target.name] : event.target.files
+    })
+  }
   return (
-    <form className="shadow p-4 rounded my-4 mx-5 " onSubmit={handleSubmit}>
+    <form className="shadow p-4 rounded my-4 mx-5" style={{backgroundColor: '#adb5bd'}}  onSubmit={handleSubmit}>
       <div className="row mb-3">
         <div className="col">
           <label className="form-label">Ingrese su nombre</label>
@@ -45,6 +54,8 @@ const Form = () => {
           <input
             type="email"
             className="form-control"
+            name="email"
+            onChange={handleChange}
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
           />
@@ -52,12 +63,14 @@ const Form = () => {
             Nunca compartiremos su email con nadie
           </div>
         </div>
-        <div className="col mb-3">
-          <label className="form-label">Contraseña</label>
+        <div className="col">
+          <label className="form-label">DNI</label>
           <input
-            type="password"
+            type="text"
             className="form-control"
-            id="exampleInputPassword1"
+            id="exampleEmailAgain"
+            name="dni"
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -67,6 +80,8 @@ const Form = () => {
           type="checkbox"
           className="form-check-input"
           id="exampleCheck1"
+          name="condiciones"
+          onChange={handleCheckbox}
         />
         <label className="form-check-label">Condiciones</label>
       </div>
@@ -75,20 +90,22 @@ const Form = () => {
         <label htmlFor="formFile" className="form-label">
           Seleccione su archivo
         </label>
-        <input className="form-control" type="file" id="formFile" />
+        <input className="form-control" type="file" id="formFile" name="archivo" onChange={handleAttachFile} />
       </div>
       <hr />
       <select
         defaultValue={"DEFAULT"}
         className="form-select"
         aria-label="Default select example"
+        name="pais"
+        onChange={handleChange}
       >
         <option value="DEFAULT" disabled>
           Seleccione su Pais
         </option>
-        <option value="1">Argentina</option>
-        <option value="2">Francia</option>
-        <option value="3">Canada</option>
+        <option value="argentina">Argentina</option>
+        <option value="francia">Francia</option>
+        <option value="canada">Canada</option>
       </select>
       <hr />
       <div className="text-center">
